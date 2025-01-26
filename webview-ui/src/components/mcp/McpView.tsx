@@ -98,8 +98,8 @@ const McpView = ({ onDone }: McpViewProps) => {
 					alignItems: "center",
 					padding: "10px 17px 10px 20px",
 				}}>
-				<h3 style={{ color: "var(--vscode-foreground)", margin: 0 }}>MCP Servers</h3>
-				<VSCodeButton onClick={onDone}>Done</VSCodeButton>
+				<h3 style={{ color: "var(--vscode-foreground)", margin: 0 }}>MCP 服务器</h3>
+				<VSCodeButton onClick={onDone}>完成</VSCodeButton>
 			</div>
 
 			<div style={{ flex: 1, overflow: "auto", padding: "0 20px" }}>
@@ -110,17 +110,16 @@ const McpView = ({ onDone }: McpViewProps) => {
 						marginBottom: "10px",
 						marginTop: "5px",
 					}}>
-					The{" "}
+					模型上下文协议 (
 					<VSCodeLink href="https://github.com/modelcontextprotocol" style={{ display: "inline" }}>
 						Model Context Protocol
-					</VSCodeLink>{" "}
-					enables communication with locally running MCP servers that provide additional tools and resources
-					to extend Roo's capabilities. You can use{" "}
+					</VSCodeLink>
+					) 使得与本地运行的 MCP 服务器进行通信成为可能，这些服务器提供额外的工具和资源来扩展 Roo
+					的能力。您可以使用{" "}
 					<VSCodeLink href="https://github.com/modelcontextprotocol/servers" style={{ display: "inline" }}>
-						community-made servers
-					</VSCodeLink>{" "}
-					or ask Roo to create new tools specific to your workflow (e.g., "add a tool that gets the latest npm
-					docs").
+						社区制作的服务器
+					</VSCodeLink>
+					，或者让 Roo 创建特定于您的工作流程的新工具（例如，“添加一个获取最新 npm 文档的工具”）。
 				</div>
 
 				<McpEnabledToggle />
@@ -145,7 +144,7 @@ const McpView = ({ onDone }: McpViewProps) => {
 									vscode.postMessage({ type: "openMcpSettings" })
 								}}>
 								<span className="codicon codicon-edit" style={{ marginRight: "6px" }}></span>
-								Edit MCP Settings
+								编辑 MCP 设置
 							</VSCodeButton>
 						</div>
 					</>
@@ -290,7 +289,7 @@ const ServerRow = ({ server, alwaysAllowMcp }: { server: McpServer; alwaysAllowM
 						onClick={handleRestart}
 						disabled={server.status === "connecting"}
 						style={{ width: "calc(100% - 20px)", margin: "0 10px 10px 10px" }}>
-						{server.status === "connecting" ? "Retrying..." : "Retry Connection"}
+						{server.status === "connecting" ? "正在重试..." : "重试连接"}
 					</VSCodeButton>
 				</div>
 			) : (
@@ -303,10 +302,9 @@ const ServerRow = ({ server, alwaysAllowMcp }: { server: McpServer; alwaysAllowM
 							borderRadius: "0 0 4px 4px",
 						}}>
 						<VSCodePanels>
-							<VSCodePanelTab id="tools">Tools ({server.tools?.length || 0})</VSCodePanelTab>
+							<VSCodePanelTab id="tools">工具 ({server.tools?.length || 0})</VSCodePanelTab>
 							<VSCodePanelTab id="resources">
-								Resources (
-								{[...(server.resourceTemplates || []), ...(server.resources || [])].length || 0})
+								资源 ({[...(server.resourceTemplates || []), ...(server.resources || [])].length || 0})
 							</VSCodePanelTab>
 
 							<VSCodePanelView id="tools-view">
@@ -324,7 +322,7 @@ const ServerRow = ({ server, alwaysAllowMcp }: { server: McpServer; alwaysAllowM
 									</div>
 								) : (
 									<div style={{ padding: "10px 0", color: "var(--vscode-descriptionForeground)" }}>
-										No tools found
+										未找到工具
 									</div>
 								)}
 							</VSCodePanelView>
@@ -345,7 +343,7 @@ const ServerRow = ({ server, alwaysAllowMcp }: { server: McpServer; alwaysAllowM
 									</div>
 								) : (
 									<div style={{ padding: "10px 0", color: "var(--vscode-descriptionForeground)" }}>
-										No resources found
+										未找到资源
 									</div>
 								)}
 							</VSCodePanelView>
@@ -356,7 +354,7 @@ const ServerRow = ({ server, alwaysAllowMcp }: { server: McpServer; alwaysAllowM
 							onClick={handleRestart}
 							disabled={server.status === "connecting"}
 							style={{ width: "calc(100% - 14px)", margin: "0 7px 3px 7px" }}>
-							{server.status === "connecting" ? "Restarting..." : "Restart Server"}
+							{server.status === "connecting" ? "正在重启..." : "重启服务器"}
 						</VSCodeButton>
 					</div>
 				)

@@ -144,7 +144,7 @@ const HistoryView = ({ onDone }: HistoryViewProps) => {
 					}
 				`}
 			</style>
-			{showCopyModal && <div className="copy-modal">Prompt Copied to Clipboard</div>}
+			{showCopyModal && <div className="copy-modal">提示已复制到剪贴板</div>}
 			<div
 				style={{
 					position: "fixed",
@@ -163,14 +163,14 @@ const HistoryView = ({ onDone }: HistoryViewProps) => {
 						alignItems: "center",
 						padding: "10px 17px 10px 20px",
 					}}>
-					<h3 style={{ color: "var(--vscode-foreground)", margin: 0 }}>History</h3>
-					<VSCodeButton onClick={onDone}>Done</VSCodeButton>
+					<h3 style={{ color: "var(--vscode-foreground)", margin: 0 }}>历史记录</h3>
+					<VSCodeButton onClick={onDone}>完成</VSCodeButton>
 				</div>
 				<div style={{ padding: "5px 17px 6px 17px" }}>
 					<div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
 						<VSCodeTextField
 							style={{ width: "100%" }}
-							placeholder="Fuzzy search history..."
+							placeholder="模糊搜索历史记录..."
 							value={searchQuery}
 							onInput={(e) => {
 								const newValue = (e.target as HTMLInputElement)?.value
@@ -187,7 +187,7 @@ const HistoryView = ({ onDone }: HistoryViewProps) => {
 							{searchQuery && (
 								<div
 									className="input-icon-button codicon codicon-close"
-									aria-label="Clear search"
+									aria-label="清除搜索"
 									onClick={() => setSearchQuery("")}
 									slot="end"
 									style={{
@@ -203,15 +203,15 @@ const HistoryView = ({ onDone }: HistoryViewProps) => {
 							style={{ display: "flex", flexWrap: "wrap" }}
 							value={sortOption}
 							onChange={(e) => setSortOption((e.target as HTMLInputElement).value as SortOption)}>
-							<VSCodeRadio value="newest">Newest</VSCodeRadio>
-							<VSCodeRadio value="oldest">Oldest</VSCodeRadio>
-							<VSCodeRadio value="mostExpensive">Most Expensive</VSCodeRadio>
-							<VSCodeRadio value="mostTokens">Most Tokens</VSCodeRadio>
+							<VSCodeRadio value="newest">最新</VSCodeRadio>
+							<VSCodeRadio value="oldest">最早</VSCodeRadio>
+							<VSCodeRadio value="mostExpensive">最昂贵</VSCodeRadio>
+							<VSCodeRadio value="mostTokens">最多令牌</VSCodeRadio>
 							<VSCodeRadio
 								value="mostRelevant"
 								disabled={!searchQuery}
 								style={{ opacity: searchQuery ? 1 : 0.5 }}>
-								Most Relevant
+								最相关
 							</VSCodeRadio>
 						</VSCodeRadioGroup>
 					</div>
@@ -267,14 +267,14 @@ const HistoryView = ({ onDone }: HistoryViewProps) => {
 										</span>
 										<div style={{ display: "flex", gap: "4px" }}>
 											<button
-												title="Copy Prompt"
+												title="复制提示"
 												className="copy-button"
 												data-appearance="icon"
 												onClick={(e) => handleCopyTask(e, item.task)}>
 												<span className="codicon codicon-copy"></span>
 											</button>
 											<button
-												title="Delete Task"
+												title="删除任务"
 												className="delete-button"
 												data-appearance="icon"
 												onClick={(e) => {
@@ -319,7 +319,7 @@ const HistoryView = ({ onDone }: HistoryViewProps) => {
 														fontWeight: 500,
 														color: "var(--vscode-descriptionForeground)",
 													}}>
-													Tokens:
+													令牌：
 												</span>
 												<span
 													data-testid="tokens-in"
@@ -375,7 +375,7 @@ const HistoryView = ({ onDone }: HistoryViewProps) => {
 														fontWeight: 500,
 														color: "var(--vscode-descriptionForeground)",
 													}}>
-													Cache:
+													缓存：
 												</span>
 												<span
 													data-testid="cache-writes"
@@ -429,7 +429,7 @@ const HistoryView = ({ onDone }: HistoryViewProps) => {
 															fontWeight: 500,
 															color: "var(--vscode-descriptionForeground)",
 														}}>
-														API Cost:
+														API 成本：
 													</span>
 													<span style={{ color: "var(--vscode-descriptionForeground)" }}>
 														${item.totalCost?.toFixed(4)}
@@ -457,7 +457,7 @@ const ExportButton = ({ itemId }: { itemId: string }) => (
 			e.stopPropagation()
 			vscode.postMessage({ type: "exportTaskWithId", text: itemId })
 		}}>
-		<div style={{ fontSize: "11px", fontWeight: 500, opacity: 1 }}>EXPORT</div>
+		<div style={{ fontSize: "11px", fontWeight: 500, opacity: 1 }}>导出</div>
 	</VSCodeButton>
 )
 
