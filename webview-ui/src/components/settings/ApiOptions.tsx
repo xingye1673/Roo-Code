@@ -93,7 +93,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 
 	const createDropdown = (models: Record<string, ModelInfo>) => {
 		const options: DropdownOption[] = [
-			{ value: "", label: "Select a model..." },
+			{ value: "", label: "选择一个模型..." },
 			...Object.keys(models).map((modelId) => ({
 				value: modelId,
 				label: modelId,
@@ -139,7 +139,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						{ value: "gemini", label: "Google Gemini" },
 						{ value: "deepseek", label: "DeepSeek" },
 						{ value: "openai-native", label: "OpenAI" },
-						{ value: "openai", label: "OpenAI Compatible" },
+						{ value: "openai", label: "OpenAI 兼容" },
 						{ value: "vertex", label: "GCP Vertex AI" },
 						{ value: "bedrock", label: "AWS Bedrock" },
 						{ value: "glama", label: "Glama" },
@@ -158,7 +158,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						style={{ width: "100%" }}
 						type="password"
 						onInput={handleInputChange("apiKey")}
-						placeholder="Enter API Key...">
+						placeholder="输入 API 密钥...">
 						<span style={{ fontWeight: 500 }}>Anthropic API 密钥</span>
 					</VSCodeTextField>
 
@@ -183,7 +183,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							style={{ width: "100%", marginTop: 3 }}
 							type="url"
 							onInput={handleInputChange("anthropicBaseUrl")}
-							placeholder="Default: https://api.anthropic.com"
+							placeholder="默认: https://api.anthropic.com"
 						/>
 					)}
 
@@ -212,7 +212,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						style={{ width: "100%" }}
 						type="password"
 						onInput={handleInputChange("glamaApiKey")}
-						placeholder="Enter API Key...">
+						placeholder="输入 API 密钥...">
 						<span style={{ fontWeight: 500 }}>Glama API 密钥</span>
 					</VSCodeTextField>
 					{!apiConfiguration?.glamaApiKey && (
@@ -241,7 +241,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						style={{ width: "100%" }}
 						type="password"
 						onInput={handleInputChange("openAiNativeApiKey")}
-						placeholder="Enter API Key...">
+						placeholder="输入 API 密钥...">
 						<span style={{ fontWeight: 500 }}>OpenAI API 密钥</span>
 					</VSCodeTextField>
 					<p
@@ -250,12 +250,12 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							marginTop: 3,
 							color: "var(--vscode-descriptionForeground)",
 						}}>
-						This key is stored locally and only used to make API requests from this extension.
+						此密钥存储在本地，仅用于此扩展发出 API 请求。
 						{!apiConfiguration?.openAiNativeApiKey && (
 							<VSCodeLink
 								href="https://platform.openai.com/api-keys"
 								style={{ display: "inline", fontSize: "inherit" }}>
-								You can get an OpenAI API key by signing up here.
+								您可以在此注册获取 OpenAI API 密钥。
 							</VSCodeLink>
 						)}
 					</p>
@@ -269,8 +269,8 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						style={{ width: "100%" }}
 						type="password"
 						onInput={handleInputChange("mistralApiKey")}
-						placeholder="Enter API Key...">
-						<span style={{ fontWeight: 500 }}>Mistral API Key</span>
+						placeholder="输入 API 密钥...">
+						<span style={{ fontWeight: 500 }}>Mistral API 密钥</span>
 					</VSCodeTextField>
 					<p
 						style={{
@@ -278,7 +278,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							marginTop: 3,
 							color: "var(--vscode-descriptionForeground)",
 						}}>
-						This key is stored locally and only used to make API requests from this extension.
+						此密钥存储在本地，仅用于此扩展发出 API 请求。
 						{!apiConfiguration?.mistralApiKey && (
 							<VSCodeLink
 								href="https://console.mistral.ai/codestral/"
@@ -286,7 +286,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 									display: "inline",
 									fontSize: "inherit",
 								}}>
-								You can get a Mistral API key by signing up here.
+								您可以在此注册获取 Mistral API 密钥。
 							</VSCodeLink>
 						)}
 					</p>
@@ -300,8 +300,8 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						style={{ width: "100%" }}
 						type="password"
 						onInput={handleInputChange("openRouterApiKey")}
-						placeholder="Enter API Key...">
-						<span style={{ fontWeight: 500 }}>OpenRouter API Key</span>
+						placeholder="输入 API 密钥...">
+						<span style={{ fontWeight: 500 }}>OpenRouter API 密钥</span>
 					</VSCodeTextField>
 					{!apiConfiguration?.openRouterApiKey && (
 						<p>
@@ -309,7 +309,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 								href={getOpenRouterAuthUrl(uriScheme)}
 								style={{ margin: "5px 0 0 0" }}
 								appearance="secondary">
-								Get OpenRouter API Key
+								获取 OpenRouter API 密钥
 							</VSCodeButtonLink>
 						</p>
 					)}
@@ -325,7 +325,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 								})
 							}
 						}}>
-						Use custom base URL
+						使用自定义基础 URL
 					</Checkbox>
 
 					{openRouterBaseUrlSelected && (
@@ -334,7 +334,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							style={{ width: "100%", marginTop: 3 }}
 							type="url"
 							onInput={handleInputChange("openRouterBaseUrl")}
-							placeholder="Default: https://openrouter.ai/api/v1"
+							placeholder="默认: https://openrouter.ai/api/v1"
 						/>
 					)}
 					<p
@@ -343,11 +343,10 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							marginTop: "5px",
 							color: "var(--vscode-descriptionForeground)",
 						}}>
-						This key is stored locally and only used to make API requests from this extension.{" "}
+						此密钥存储在本地，仅用于此扩展发出 API 请求。{" "}
 						{/* {!apiConfiguration?.openRouterApiKey && (
 							<span style={{ color: "var(--vscode-charts-green)" }}>
-								(<span style={{ fontWeight: 500 }}>Note:</span> OpenRouter is recommended for high rate
-								limits, prompt caching, and wider selection of models.)
+								(<span style={{ fontWeight: 500 }}>注意:</span> OpenRouter 推荐用于高速率限制、提示缓存和更广泛的模型选择。)
 							</span>
 						)} */}
 					</p>
@@ -358,8 +357,8 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 								target: { value: checked },
 							})
 						}}>
-						Compress prompts and message chains to the context size (
-						<a href="https://openrouter.ai/docs/transforms">OpenRouter Transforms</a>)
+						压缩提示和消息链到上下文大小 (
+						<a href="https://openrouter.ai/docs/transforms">OpenRouter 转换</a>)
 					</Checkbox>
 					<br />
 				</div>
@@ -376,8 +375,8 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 								target: { value: useProfile },
 							})
 						}}>
-						<VSCodeRadio value="credentials">AWS Credentials</VSCodeRadio>
-						<VSCodeRadio value="profile">AWS Profile</VSCodeRadio>
+						<VSCodeRadio value="credentials">AWS 凭证</VSCodeRadio>
+						<VSCodeRadio value="profile">AWS 配置文件</VSCodeRadio>
 					</VSCodeRadioGroup>
 					{/* AWS Profile Config Block */}
 					{apiConfiguration?.awsUseProfile ? (
@@ -385,8 +384,8 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							value={apiConfiguration?.awsProfile || ""}
 							style={{ width: "100%" }}
 							onInput={handleInputChange("awsProfile")}
-							placeholder="Enter profile name">
-							<span style={{ fontWeight: 500 }}>AWS Profile Name</span>
+							placeholder="输入配置文件名称">
+							<span style={{ fontWeight: 500 }}>AWS 配置文件名称</span>
 						</VSCodeTextField>
 					) : (
 						<>
@@ -396,30 +395,30 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 								style={{ width: "100%" }}
 								type="password"
 								onInput={handleInputChange("awsAccessKey")}
-								placeholder="Enter Access Key...">
-								<span style={{ fontWeight: 500 }}>AWS Access Key</span>
+								placeholder="输入访问密钥...">
+								<span style={{ fontWeight: 500 }}>AWS 访问密钥</span>
 							</VSCodeTextField>
 							<VSCodeTextField
 								value={apiConfiguration?.awsSecretKey || ""}
 								style={{ width: "100%" }}
 								type="password"
 								onInput={handleInputChange("awsSecretKey")}
-								placeholder="Enter Secret Key...">
-								<span style={{ fontWeight: 500 }}>AWS Secret Key</span>
+								placeholder="输入秘密密钥...">
+								<span style={{ fontWeight: 500 }}>AWS 秘密密钥</span>
 							</VSCodeTextField>
 							<VSCodeTextField
 								value={apiConfiguration?.awsSessionToken || ""}
 								style={{ width: "100%" }}
 								type="password"
 								onInput={handleInputChange("awsSessionToken")}
-								placeholder="Enter Session Token...">
-								<span style={{ fontWeight: 500 }}>AWS Session Token</span>
+								placeholder="输入会话令牌...">
+								<span style={{ fontWeight: 500 }}>AWS 会话令牌</span>
 							</VSCodeTextField>
 						</>
 					)}
 					<div className="dropdown-container">
 						<label htmlFor="aws-region-dropdown">
-							<span style={{ fontWeight: 500 }}>AWS Region</span>
+							<span style={{ fontWeight: 500 }}>AWS 区域</span>
 						</label>
 						<Dropdown
 							id="aws-region-dropdown"
@@ -433,7 +432,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 								})
 							}}
 							options={[
-								{ value: "", label: "Select a region..." },
+								{ value: "", label: "选择一个区域..." },
 								{ value: "us-east-1", label: "us-east-1" },
 								{ value: "us-east-2", label: "us-east-2" },
 								{ value: "us-west-2", label: "us-west-2" },
@@ -459,7 +458,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 								target: { value: checked },
 							})
 						}}>
-						Use cross-region inference
+						使用跨域推理
 					</Checkbox>
 					<p
 						style={{
@@ -467,9 +466,8 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							marginTop: "5px",
 							color: "var(--vscode-descriptionForeground)",
 						}}>
-						Authenticate by either providing the keys above or use the default AWS credential providers,
-						i.e. ~/.aws/credentials or environment variables. These credentials are only used locally to
-						make API requests from this extension.
+						通过提供上述密钥进行身份验证，或使用默认的 AWS 凭证提供程序，例如 ~/.aws/credentials
+						或环境变量。这些凭证仅在本地用于从此扩展发出 API 请求。
 					</p>
 				</div>
 			)}
@@ -480,12 +478,12 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						value={apiConfiguration?.vertexProjectId || ""}
 						style={{ width: "100%" }}
 						onInput={handleInputChange("vertexProjectId")}
-						placeholder="Enter Project ID...">
-						<span style={{ fontWeight: 500 }}>Google Cloud Project ID</span>
+						placeholder="输入项目 ID...">
+						<span style={{ fontWeight: 500 }}>Google Cloud 项目 ID</span>
 					</VSCodeTextField>
 					<div className="dropdown-container">
 						<label htmlFor="vertex-region-dropdown">
-							<span style={{ fontWeight: 500 }}>Google Cloud Region</span>
+							<span style={{ fontWeight: 500 }}>Google Cloud 区域</span>
 						</label>
 						<Dropdown
 							id="vertex-region-dropdown"
@@ -499,7 +497,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 								})
 							}}
 							options={[
-								{ value: "", label: "Select a region..." },
+								{ value: "", label: "选择一个区域..." },
 								{ value: "us-east5", label: "us-east5" },
 								{ value: "us-central1", label: "us-central1" },
 								{ value: "europe-west1", label: "europe-west1" },
@@ -514,18 +512,16 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							marginTop: "5px",
 							color: "var(--vscode-descriptionForeground)",
 						}}>
-						To use Google Cloud Vertex AI, you need to
+						要使用 Google Cloud Vertex AI，您需要
 						<VSCodeLink
 							href="https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude#before_you_begin"
 							style={{ display: "inline", fontSize: "inherit" }}>
-							{
-								"1) create a Google Cloud account › enable the Vertex AI API › enable the desired Claude models,"
-							}
+							{"1) 创建一个 Google Cloud 账户 › 启用 Vertex AI API › 启用所需的 Claude 模型,"}
 						</VSCodeLink>{" "}
 						<VSCodeLink
 							href="https://cloud.google.com/docs/authentication/provide-credentials-adc#google-idp"
 							style={{ display: "inline", fontSize: "inherit" }}>
-							{"2) install the Google Cloud CLI › configure Application Default Credentials."}
+							{"2) 安装 Google Cloud CLI › 配置应用程序默认凭据。"}
 						</VSCodeLink>
 					</p>
 				</div>
@@ -538,7 +534,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						style={{ width: "100%" }}
 						type="password"
 						onInput={handleInputChange("geminiApiKey")}
-						placeholder="Enter API Key...">
+						placeholder="输入 API 密钥...">
 						<span style={{ fontWeight: 500 }}>Gemini API 密钥</span>
 					</VSCodeTextField>
 					<p
@@ -566,16 +562,16 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						style={{ width: "100%" }}
 						type="url"
 						onInput={handleInputChange("openAiBaseUrl")}
-						placeholder={"Enter base URL..."}>
-						<span style={{ fontWeight: 500 }}>Base URL</span>
+						placeholder={"输入基础 URL..."}>
+						<span style={{ fontWeight: 500 }}>基础 URL</span>
 					</VSCodeTextField>
 					<VSCodeTextField
 						value={apiConfiguration?.openAiApiKey || ""}
 						style={{ width: "100%" }}
 						type="password"
 						onInput={handleInputChange("openAiApiKey")}
-						placeholder="Enter API Key...">
-						<span style={{ fontWeight: 500 }}>API Key</span>
+						placeholder="输入 API 密钥...">
+						<span style={{ fontWeight: 500 }}>API 密钥</span>
 					</VSCodeTextField>
 					<OpenAiModelPicker />
 					<div style={{ display: "flex", alignItems: "center" }}>
@@ -586,7 +582,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 									target: { value: checked },
 								})
 							}}>
-							Enable streaming
+							启用流式传输
 						</Checkbox>
 					</div>
 					<Checkbox
@@ -596,7 +592,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 								target: { value: checked },
 							})
 						}}>
-						Use Azure
+						使用 Azure
 					</Checkbox>
 					<Checkbox
 						checked={azureApiVersionSelected}
@@ -610,14 +606,14 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 								})
 							}
 						}}>
-						Set Azure API version
+						设置 Azure API 版本
 					</Checkbox>
 					{azureApiVersionSelected && (
 						<VSCodeTextField
 							value={apiConfiguration?.azureApiVersion || ""}
 							style={{ width: "100%", marginTop: 3 }}
 							onInput={handleInputChange("azureApiVersion")}
-							placeholder={`Default: ${azureOpenAiDefaultApiVersion}`}
+							placeholder={`默认: ${azureOpenAiDefaultApiVersion}`}
 						/>
 					)}
 
@@ -627,7 +623,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						}}
 					/>
 					<Pane
-						title="Model Configuration"
+						title="模型配置"
 						open={false}
 						actions={[
 							{
@@ -650,8 +646,8 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 									margin: "0 0 15px 0",
 									lineHeight: "1.4",
 								}}>
-								Configure the capabilities and pricing for your custom OpenAI-compatible model. <br />
-								Be careful for the model capabilities, as they can affect how Roo Code can work.
+								配置您的自定义 OpenAI 兼容模型的功能和定价。 <br />
+								请小心模型功能，因为它们会影响 Roo Code 的工作方式。
 							</p>
 
 							{/* Capabilities Section */}
@@ -670,7 +666,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 										marginBottom: 12,
 										color: "var(--vscode-editor-foreground)",
 									}}>
-									Model Capabilities
+									模型功能
 								</span>
 								<div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
 									<div className="token-config-field">
@@ -691,7 +687,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 														: "var(--vscode-errorForeground)"
 												})(),
 											}}
-											title="Maximum number of tokens the model can generate in a single response"
+											title="模型在单个响应中可以生成的最大令牌数"
 											onChange={(e: any) => {
 												const value = parseInt(e.target.value)
 												handleInputChange("openAiCustomModelInfo")({
@@ -704,8 +700,8 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 													},
 												})
 											}}
-											placeholder="e.g. 4096">
-											<span style={{ fontWeight: 500 }}>Max Output Tokens</span>
+											placeholder="例如 4096">
+											<span style={{ fontWeight: 500 }}>最大输出令牌数</span>
 										</VSCodeTextField>
 										<div
 											style={{
@@ -718,8 +714,8 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 											}}>
 											<i className="codicon codicon-info" style={{ fontSize: "12px" }}></i>
 											<span>
-												Maximum number of tokens the model can generate in a response. <br />
-												(-1 is depend on server)
+												模型在单个响应中可以生成的最大令牌数。 <br />
+												（-1 取决于服务器）
 											</span>
 										</div>
 									</div>
@@ -742,7 +738,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 														: "var(--vscode-errorForeground)"
 												})(),
 											}}
-											title="Total number of tokens (input + output) the model can process in a single request"
+											title="模型在单个请求中可以处理的总令牌数（输入 + 输出）"
 											onChange={(e: any) => {
 												const parsed = parseInt(e.target.value)
 												handleInputChange("openAiCustomModelInfo")({
@@ -760,8 +756,8 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 													},
 												})
 											}}
-											placeholder="e.g. 128000">
-											<span style={{ fontWeight: 500 }}>Context Window Size</span>
+											placeholder="例如 128000">
+											<span style={{ fontWeight: 500 }}>上下文窗口大小</span>
 										</VSCodeTextField>
 										<div
 											style={{
@@ -774,8 +770,8 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 											}}>
 											<i className="codicon codicon-info" style={{ fontSize: "12px" }}></i>
 											<span>
-												Total tokens (input + output) the model can process. This will help Roo
-												Code run correctly.
+												模型在单个请求中可以处理的总令牌数（输入 + 输出）。这将帮助 Roo Code
+												正常运行。
 											</span>
 										</div>
 									</div>
@@ -797,7 +793,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 												display: "block",
 												marginBottom: "10px",
 											}}>
-											Model Features
+											模型功能
 										</span>
 
 										<div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
@@ -819,11 +815,11 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 																},
 															})
 														}}>
-														<span style={{ fontWeight: 500 }}>Image Support</span>
+														<span style={{ fontWeight: 500 }}>图像支持</span>
 													</Checkbox>
 													<i
 														className="codicon codicon-info"
-														title="Enable if the model can process and understand images in the input. Required for image-based assistance and visual code understanding."
+														title="如果模型可以处理和理解输入中的图像，请启用此功能。需要图像辅助和视觉代码理解。"
 														style={{
 															fontSize: "12px",
 															color: "var(--vscode-descriptionForeground)",
@@ -839,8 +835,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 														marginTop: "4px",
 														lineHeight: "1.4",
 													}}>
-													Allows the model to analyze and understand images, essential for
-													visual code assistance
+													允许模型分析和理解图像，对于视觉代码辅助至关重要
 												</p>
 											</div>
 
@@ -867,11 +862,11 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 																},
 															})
 														}}>
-														<span style={{ fontWeight: 500 }}>Computer Use</span>
+														<span style={{ fontWeight: 500 }}>计算机使用</span>
 													</Checkbox>
 													<i
 														className="codicon codicon-info"
-														title="Enable if the model can interact with your computer through commands and file operations. Required for automated tasks and file modifications."
+														title="如果模型可以通过命令和文件操作与您的计算机交互，请启用此功能。需要自动化任务和文件修改。"
 														style={{
 															fontSize: "12px",
 															color: "var(--vscode-descriptionForeground)",
@@ -887,7 +882,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 														marginTop: "4px",
 														lineHeight: "1.4",
 													}}>
-													This model feature is for computer use like sonnet 3.5 support
+													此模型功能用于计算机使用，如 sonnet 3.5 支持
 												</p>
 											</div>
 										</div>
@@ -912,7 +907,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 											display: "block",
 											marginBottom: "4px",
 										}}>
-										Model Pricing
+										模型定价
 									</span>
 									<span
 										style={{
@@ -920,7 +915,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 											color: "var(--vscode-descriptionForeground)",
 											display: "block",
 										}}>
-										Configure token-based pricing in USD per million tokens
+										以每百万令牌的美元为单位配置基于令牌的定价
 									</span>
 								</div>
 
@@ -968,12 +963,12 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 													},
 												})
 											}}
-											placeholder="e.g. 0.0001">
+											placeholder="例如 0.0001">
 											<div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-												<span style={{ fontWeight: 500 }}>Input Price</span>
+												<span style={{ fontWeight: 500 }}>输入价格</span>
 												<i
 													className="codicon codicon-info"
-													title="Cost per million tokens in the input/prompt. This affects the cost of sending context and instructions to the model."
+													title="输入/提示中的每百万令牌的成本。这会影响发送上下文和指令到模型的成本。"
 													style={{
 														fontSize: "12px",
 														color: "var(--vscode-descriptionForeground)",
@@ -1019,12 +1014,12 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 													},
 												})
 											}}
-											placeholder="e.g. 0.0002">
+											placeholder="例如 0.0002">
 											<div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-												<span style={{ fontWeight: 500 }}>Output Price</span>
+												<span style={{ fontWeight: 500 }}>输出价格</span>
 												<i
 													className="codicon codicon-info"
-													title="Cost per million tokens in the model's response. This affects the cost of generated content and completions."
+													title="模型响应中的每百万令牌的成本。这会影响生成内容和完成的成本。"
 													style={{
 														fontSize: "12px",
 														color: "var(--vscode-descriptionForeground)",
@@ -1053,8 +1048,8 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							color: "var(--vscode-descriptionForeground)",
 						}}>
 						<span style={{ color: "var(--vscode-errorForeground)" }}>
-							(<span style={{ fontWeight: 500 }}>Note:</span> Roo Code uses complex prompts and works best
-							with Claude models. Less capable models may not work as expected.)
+							(<span style={{ fontWeight: 500 }}>注意:</span> Roo Code 使用复杂的提示，最适合 Claude
+							模型。功能较弱的模型可能无法按预期工作。)
 						</span>
 					</p>
 				</div>
@@ -1067,15 +1062,15 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						style={{ width: "100%" }}
 						type="url"
 						onInput={handleInputChange("lmStudioBaseUrl")}
-						placeholder={"Default: http://localhost:1234"}>
-						<span style={{ fontWeight: 500 }}>Base URL (optional)</span>
+						placeholder={"默认: http://localhost:1234"}>
+						<span style={{ fontWeight: 500 }}>基础 URL（可选）</span>
 					</VSCodeTextField>
 					<VSCodeTextField
 						value={apiConfiguration?.lmStudioModelId || ""}
 						style={{ width: "100%" }}
 						onInput={handleInputChange("lmStudioModelId")}
-						placeholder={"e.g. meta-llama-3.1-8b-instruct"}>
-						<span style={{ fontWeight: 500 }}>Model ID</span>
+						placeholder={"例如 meta-llama-3.1-8b-instruct"}>
+						<span style={{ fontWeight: 500 }}>模型 ID</span>
 					</VSCodeTextField>
 					{lmStudioModels.length > 0 && (
 						<VSCodeRadioGroup
@@ -1109,21 +1104,20 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							marginTop: "5px",
 							color: "var(--vscode-descriptionForeground)",
 						}}>
-						LM Studio allows you to run models locally on your computer. For instructions on how to get
-						started, see their
+						LM Studio 允许您在本地计算机上运行模型。有关入门说明，请参阅其
 						<VSCodeLink href="https://lmstudio.ai/docs" style={{ display: "inline", fontSize: "inherit" }}>
-							quickstart guide.
+							快速入门指南。
 						</VSCodeLink>
-						You will also need to start LM Studio's{" "}
+						您还需要启动 LM Studio 的{" "}
 						<VSCodeLink
 							href="https://lmstudio.ai/docs/basics/server"
 							style={{ display: "inline", fontSize: "inherit" }}>
-							local server
+							本地服务器
 						</VSCodeLink>{" "}
-						feature to use it with this extension.{" "}
+						功能才能与此扩展一起使用。{" "}
 						<span style={{ color: "var(--vscode-errorForeground)" }}>
-							(<span style={{ fontWeight: 500 }}>Note:</span> Roo Code uses complex prompts and works best
-							with Claude models. Less capable models may not work as expected.)
+							(<span style={{ fontWeight: 500 }}>注意:</span> Roo Code 使用复杂的提示，最适合 Claude
+							模型。功能较弱的模型可能无法按预期工作。)
 						</span>
 					</p>
 				</div>
@@ -1136,7 +1130,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						style={{ width: "100%" }}
 						type="password"
 						onInput={handleInputChange("deepSeekApiKey")}
-						placeholder="Enter API Key...">
+						placeholder="输入 API 密钥...">
 						<span style={{ fontWeight: 500 }}>DeepSeek API 密钥</span>
 					</VSCodeTextField>
 					<p
@@ -1185,7 +1179,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 								}}
 								style={{ width: "100%" }}
 								options={[
-									{ value: "", label: "Select a model..." },
+									{ value: "", label: "选择一个模型..." },
 									...vsCodeLmModels.map((model) => ({
 										value: `${model.vendor}/${model.family}`,
 										label: `${model.vendor} - ${model.family}`,
@@ -1226,15 +1220,15 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						style={{ width: "100%" }}
 						type="url"
 						onInput={handleInputChange("ollamaBaseUrl")}
-						placeholder={"Default: http://localhost:11434"}>
-						<span style={{ fontWeight: 500 }}>Base URL (optional)</span>
+						placeholder={"默认: http://localhost:11434"}>
+						<span style={{ fontWeight: 500 }}>基础 URL（可选）</span>
 					</VSCodeTextField>
 					<VSCodeTextField
 						value={apiConfiguration?.ollamaModelId || ""}
 						style={{ width: "100%" }}
 						onInput={handleInputChange("ollamaModelId")}
-						placeholder={"e.g. llama3.1"}>
-						<span style={{ fontWeight: 500 }}>Model ID</span>
+						placeholder={"例如 llama3.1"}>
+						<span style={{ fontWeight: 500 }}>模型 ID</span>
 					</VSCodeTextField>
 					{ollamaModels.length > 0 && (
 						<VSCodeRadioGroup
@@ -1268,16 +1262,15 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							marginTop: "5px",
 							color: "var(--vscode-descriptionForeground)",
 						}}>
-						Ollama allows you to run models locally on your computer. For instructions on how to get
-						started, see their
+						Ollama 允许您在本地计算机上运行模型。有关入门说明，请参阅其
 						<VSCodeLink
 							href="https://github.com/ollama/ollama/blob/main/README.md"
 							style={{ display: "inline", fontSize: "inherit" }}>
-							quickstart guide.
+							快速入门指南。
 						</VSCodeLink>
 						<span style={{ color: "var(--vscode-errorForeground)" }}>
-							(<span style={{ fontWeight: 500 }}>Note:</span> Roo Code uses complex prompts and works best
-							with Claude models. Less capable models may not work as expected.)
+							(<span style={{ fontWeight: 500 }}>注意:</span> Roo Code 使用复杂的提示，最适合 Claude
+							模型。功能较弱的模型可能无法按预期工作。)
 						</span>
 					</p>
 				</div>
@@ -1306,7 +1299,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 					<>
 						<div className="dropdown-container">
 							<label htmlFor="model-id">
-								<span style={{ fontWeight: 500 }}>Model</span>
+								<span style={{ fontWeight: 500 }}>模型</span>
 							</label>
 							{selectedProvider === "anthropic" && createDropdown(anthropicModels)}
 							{selectedProvider === "bedrock" && createDropdown(bedrockModels)}
@@ -1384,57 +1377,56 @@ export const ModelInfoView = ({
 		<ModelInfoSupportsItem
 			key="supportsImages"
 			isSupported={modelInfo.supportsImages ?? false}
-			supportsLabel="Supports images"
-			doesNotSupportLabel="Does not support images"
+			supportsLabel="支持图像"
+			doesNotSupportLabel="不支持图像"
 		/>,
 		<ModelInfoSupportsItem
 			key="supportsComputerUse"
 			isSupported={modelInfo.supportsComputerUse ?? false}
-			supportsLabel="Supports computer use"
-			doesNotSupportLabel="Does not support computer use"
+			supportsLabel="支持计算机使用"
+			doesNotSupportLabel="不支持计算机使用"
 		/>,
 		!isGemini && (
 			<ModelInfoSupportsItem
 				key="supportsPromptCache"
 				isSupported={modelInfo.supportsPromptCache}
-				supportsLabel="Supports prompt caching"
-				doesNotSupportLabel="Does not support prompt caching"
+				supportsLabel="支持提示缓存"
+				doesNotSupportLabel="不支持提示缓存"
 			/>
 		),
 		modelInfo.maxTokens !== undefined && modelInfo.maxTokens > 0 && (
 			<span key="maxTokens">
-				<span style={{ fontWeight: 500 }}>Max output:</span> {modelInfo.maxTokens?.toLocaleString()} tokens
+				<span style={{ fontWeight: 500 }}>最大输出:</span> {modelInfo.maxTokens?.toLocaleString()} 令牌
 			</span>
 		),
 		modelInfo.inputPrice !== undefined && modelInfo.inputPrice > 0 && (
 			<span key="inputPrice">
-				<span style={{ fontWeight: 500 }}>Input price:</span> {formatPrice(modelInfo.inputPrice)}/million tokens
+				<span style={{ fontWeight: 500 }}>输入价格:</span> {formatPrice(modelInfo.inputPrice)}/百万令牌
 			</span>
 		),
 		modelInfo.supportsPromptCache && modelInfo.cacheWritesPrice && (
 			<span key="cacheWritesPrice">
-				<span style={{ fontWeight: 500 }}>Cache writes price:</span>{" "}
-				{formatPrice(modelInfo.cacheWritesPrice || 0)}/million tokens
+				<span style={{ fontWeight: 500 }}>缓存写入价格:</span> {formatPrice(modelInfo.cacheWritesPrice || 0)}
+				/百万令牌
 			</span>
 		),
 		modelInfo.supportsPromptCache && modelInfo.cacheReadsPrice && (
 			<span key="cacheReadsPrice">
-				<span style={{ fontWeight: 500 }}>Cache reads price:</span>{" "}
-				{formatPrice(modelInfo.cacheReadsPrice || 0)}/million tokens
+				<span style={{ fontWeight: 500 }}>缓存读取价格:</span> {formatPrice(modelInfo.cacheReadsPrice || 0)}
+				/百万令牌
 			</span>
 		),
 		modelInfo.outputPrice !== undefined && modelInfo.outputPrice > 0 && (
 			<span key="outputPrice">
-				<span style={{ fontWeight: 500 }}>Output price:</span> {formatPrice(modelInfo.outputPrice)}/million
-				tokens
+				<span style={{ fontWeight: 500 }}>输出价格:</span> {formatPrice(modelInfo.outputPrice)}/百万令牌
 			</span>
 		),
 		isGemini && (
 			<span key="geminiInfo" style={{ fontStyle: "italic" }}>
-				* Free up to {selectedModelId && selectedModelId.includes("flash") ? "15" : "2"} requests per minute.
-				After that, billing depends on prompt size.{" "}
+				* 每分钟最多免费 {selectedModelId && selectedModelId.includes("flash") ? "15" : "2"} 次请求。
+				之后，计费取决于提示大小。{" "}
 				<VSCodeLink href="https://ai.google.dev/pricing" style={{ display: "inline", fontSize: "inherit" }}>
-					For more info, see pricing details.
+					有关更多信息，请参阅定价详情。
 				</VSCodeLink>
 			</span>
 		),

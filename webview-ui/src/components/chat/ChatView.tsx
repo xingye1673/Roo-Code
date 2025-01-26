@@ -808,10 +808,10 @@ const ChatView = ({ isHidden, showAnnouncement, hideAnnouncement, showHistoryVie
 	useEvent("wheel", handleWheel, window, { passive: true }) // passive improves scrolling performance
 
 	const placeholderText = useMemo(() => {
-		const baseText = task ? "Type a message..." : "Type your task here..."
-		const contextText = "(@ to add context"
-		const imageText = shouldDisableImages ? "" : ", hold shift to drag in images"
-		const helpText = imageText ? `\n${contextText}${imageText})` : `\n${contextText})`
+		const baseText = task ? "输入消息..." : "在此输入您的任务..."
+		const contextText = "（@添加上下文"
+		const imageText = shouldDisableImages ? "" : "，按住Shift键拖入图片"
+		const helpText = imageText ? `\n${contextText}${imageText}）` : `\n${contextText}）`
 		return baseText + helpText
 	}, [task, shouldDisableImages])
 
@@ -929,13 +929,9 @@ const ChatView = ({ isHidden, showAnnouncement, hideAnnouncement, showHistoryVie
 					}}>
 					{showAnnouncement && <Announcement version={version} hideAnnouncement={hideAnnouncement} />}
 					<div style={{ padding: "0 20px", flexShrink: 0 }}>
-						<h2>What can I do for you?</h2>
+						<h2>我能为你做什么？</h2>
 						<p>
-							Thanks to the latest breakthroughs in agentic coding capabilities, I can handle complex
-							software development tasks step-by-step. With tools that let me create & edit files, explore
-							complex projects, use the browser, and execute terminal commands (after you grant
-							permission), I can assist you in ways that go beyond code completion or tech support. I can
-							even use MCP to create new tools and extend my own capabilities.
+							感谢最新的代理编码能力突破，我可以一步步处理复杂的软件开发任务。通过使用工具创建和编辑文件、探索复杂项目、使用浏览器和执行终端命令（在您授予权限后），我可以以超越代码完成或技术支持的方式帮助您。我甚至可以使用MCP创建新工具并扩展我自己的能力。
 						</p>
 					</div>
 					{taskHistory.length > 0 && <HistoryPreview showHistoryView={showHistoryView} />}
@@ -1044,7 +1040,7 @@ const ChatView = ({ isHidden, showAnnouncement, hideAnnouncement, showHistoryVie
 										marginLeft: isStreaming ? 0 : "6px",
 									}}
 									onClick={handleSecondaryButtonClick}>
-									{isStreaming ? "Cancel" : secondaryButtonText}
+									{isStreaming ? "取消" : secondaryButtonText}
 								</VSCodeButton>
 							)}
 						</div>
