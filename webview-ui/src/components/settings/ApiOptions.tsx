@@ -120,7 +120,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 		<div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
 			<div className="dropdown-container">
 				<label htmlFor="api-provider">
-					<span style={{ fontWeight: 500 }}>API Provider</span>
+					<span style={{ fontWeight: 500 }}>API 提供商</span>
 				</label>
 				<Dropdown
 					id="api-provider"
@@ -159,7 +159,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						type="password"
 						onInput={handleInputChange("apiKey")}
 						placeholder="Enter API Key...">
-						<span style={{ fontWeight: 500 }}>Anthropic API Key</span>
+						<span style={{ fontWeight: 500 }}>Anthropic API 密钥</span>
 					</VSCodeTextField>
 
 					<Checkbox
@@ -174,7 +174,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 								})
 							}
 						}}>
-						Use custom base URL
+						使用自定义基础 URL
 					</Checkbox>
 
 					{anthropicBaseUrlSelected && (
@@ -193,12 +193,12 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							marginTop: 3,
 							color: "var(--vscode-descriptionForeground)",
 						}}>
-						This key is stored locally and only used to make API requests from this extension.
+						此密钥存储在本地，仅用于此扩展发出 API 请求。
 						{!apiConfiguration?.apiKey && (
 							<VSCodeLink
 								href="https://console.anthropic.com/settings/keys"
 								style={{ display: "inline", fontSize: "inherit" }}>
-								You can get an Anthropic API key by signing up here.
+								您可以在此注册获取 Anthropic API 密钥。
 							</VSCodeLink>
 						)}
 					</p>
@@ -213,14 +213,14 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						type="password"
 						onInput={handleInputChange("glamaApiKey")}
 						placeholder="Enter API Key...">
-						<span style={{ fontWeight: 500 }}>Glama API Key</span>
+						<span style={{ fontWeight: 500 }}>Glama API 密钥</span>
 					</VSCodeTextField>
 					{!apiConfiguration?.glamaApiKey && (
 						<VSCodeButtonLink
 							href={getGlamaAuthUrl(uriScheme)}
 							style={{ margin: "5px 0 0 0" }}
 							appearance="secondary">
-							Get Glama API Key
+							获取 Glama API 密钥
 						</VSCodeButtonLink>
 					)}
 					<p
@@ -229,7 +229,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							marginTop: "5px",
 							color: "var(--vscode-descriptionForeground)",
 						}}>
-						This key is stored locally and only used to make API requests from this extension.
+						此密钥存储在本地，仅用于此扩展发出 API 请求。
 					</p>
 				</div>
 			)}
@@ -242,7 +242,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						type="password"
 						onInput={handleInputChange("openAiNativeApiKey")}
 						placeholder="Enter API Key...">
-						<span style={{ fontWeight: 500 }}>OpenAI API Key</span>
+						<span style={{ fontWeight: 500 }}>OpenAI API 密钥</span>
 					</VSCodeTextField>
 					<p
 						style={{
@@ -539,7 +539,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						type="password"
 						onInput={handleInputChange("geminiApiKey")}
 						placeholder="Enter API Key...">
-						<span style={{ fontWeight: 500 }}>Gemini API Key</span>
+						<span style={{ fontWeight: 500 }}>Gemini API 密钥</span>
 					</VSCodeTextField>
 					<p
 						style={{
@@ -547,12 +547,12 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							marginTop: 3,
 							color: "var(--vscode-descriptionForeground)",
 						}}>
-						This key is stored locally and only used to make API requests from this extension.
+						此密钥存储在本地，仅用于此扩展发出 API 请求。
 						{!apiConfiguration?.geminiApiKey && (
 							<VSCodeLink
 								href="https://ai.google.dev/"
 								style={{ display: "inline", fontSize: "inherit" }}>
-								You can get a Gemini API key by signing up here.
+								您可以在此注册获取 Gemini API 密钥。
 							</VSCodeLink>
 						)}
 					</p>
@@ -1137,7 +1137,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 						type="password"
 						onInput={handleInputChange("deepSeekApiKey")}
 						placeholder="Enter API Key...">
-						<span style={{ fontWeight: 500 }}>DeepSeek API Key</span>
+						<span style={{ fontWeight: 500 }}>DeepSeek API 密钥</span>
 					</VSCodeTextField>
 					<p
 						style={{
@@ -1145,12 +1145,12 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							marginTop: "5px",
 							color: "var(--vscode-descriptionForeground)",
 						}}>
-						This key is stored locally and only used to make API requests from this extension.
+						此密钥存储在本地，仅用于此扩展发出 API 请求。
 						{!apiConfiguration?.deepSeekApiKey && (
 							<VSCodeLink
 								href="https://platform.deepseek.com/"
 								style={{ display: "inline", fontSize: "inherit" }}>
-								You can get a DeepSeek API key by signing up here.
+								您可以在此注册获取 DeepSeek API 密钥。
 							</VSCodeLink>
 						)}
 					</p>
@@ -1161,7 +1161,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 				<div>
 					<div className="dropdown-container">
 						<label htmlFor="vscode-lm-model">
-							<span style={{ fontWeight: 500 }}>Language Model</span>
+							<span style={{ fontWeight: 500 }}>语言模型</span>
 						</label>
 						{vsCodeLmModels.length > 0 ? (
 							<Dropdown
@@ -1199,9 +1199,9 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 									marginTop: "5px",
 									color: "var(--vscode-descriptionForeground)",
 								}}>
-								The VS Code Language Model API allows you to run models provided by other VS Code
-								extensions (including but not limited to GitHub Copilot). The easiest way to get started
-								is to install the Copilot and Copilot Chat extensions from the VS Code Marketplace.
+								VS Code 语言模型 API 允许您运行其他 VS Code 扩展（包括但不限于 GitHub
+								Copilot）提供的模型。 最简单的入门方式是从 VS Code 市场安装 Copilot 和 Copilot Chat
+								扩展。
 							</p>
 						)}
 
@@ -1212,8 +1212,8 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 								color: "var(--vscode-errorForeground)",
 								fontWeight: 500,
 							}}>
-							Note: This is a very experimental integration and may not work as expected. Please report
-							any issues to the Roo-Code GitHub repository.
+							注意：这是一个实验性的集成，可能无法按预期工作。如有任何问题，请在 Roo-Code GitHub
+							仓库报告。
 						</p>
 					</div>
 				</div>

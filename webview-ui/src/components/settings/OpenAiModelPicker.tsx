@@ -146,17 +146,17 @@ const OpenAiModelPicker: React.FC = () => {
 		<>
 			<style>
 				{`
-				.model-item-highlight {
-					background-color: var(--vscode-editor-findMatchHighlightBackground);
-					color: inherit;
-				}
-				`}
+.model-item-highlight {
+background-color: var(--vscode-editor-findMatchHighlightBackground);
+color: inherit;
+}
+`}
 			</style>
 			<div>
 				<DropdownWrapper ref={dropdownRef}>
 					<VSCodeTextField
 						id="model-search"
-						placeholder="Search and select a model..."
+						placeholder="搜索并选择模型..."
 						value={searchTerm}
 						onInput={(e) => {
 							handleModelChange((e.target as HTMLInputElement)?.value)
@@ -168,7 +168,7 @@ const OpenAiModelPicker: React.FC = () => {
 						{searchTerm && (
 							<div
 								className="input-icon-button codicon codicon-close"
-								aria-label="Clear search"
+								aria-label="清除搜索"
 								onClick={() => {
 									handleModelChange("")
 									setIsDropdownVisible(true)
@@ -306,7 +306,6 @@ export const ModelDescriptionMarkdown = memo(
 		setIsExpanded: (isExpanded: boolean) => void
 	}) => {
 		const [reactContent, setMarkdown] = useRemark()
-		// const [isExpanded, setIsExpanded] = useState(false)
 		const [showSeeMore, setShowSeeMore] = useState(false)
 		const textContainerRef = useRef<HTMLDivElement>(null)
 		const textRef = useRef<HTMLDivElement>(null)
@@ -321,9 +320,6 @@ export const ModelDescriptionMarkdown = memo(
 				const { clientHeight } = textContainerRef.current
 				const isOverflowing = scrollHeight > clientHeight
 				setShowSeeMore(isOverflowing)
-				// if (!isOverflowing) {
-				// 	setIsExpanded(false)
-				// }
 			}
 		}, [reactContent, setIsExpanded])
 
@@ -344,9 +340,6 @@ export const ModelDescriptionMarkdown = memo(
 							WebkitLineClamp: isExpanded ? "unset" : 3,
 							WebkitBoxOrient: "vertical",
 							overflow: "hidden",
-							// whiteSpace: "pre-wrap",
-							// wordBreak: "break-word",
-							// overflowWrap: "anywhere",
 						}}>
 						{reactContent}
 					</div>
@@ -369,15 +362,13 @@ export const ModelDescriptionMarkdown = memo(
 							/>
 							<VSCodeLink
 								style={{
-									// cursor: "pointer",
-									// color: "var(--vscode-textLink-foreground)",
 									fontSize: "inherit",
 									paddingRight: 0,
 									paddingLeft: 3,
 									backgroundColor: "var(--vscode-sideBar-background)",
 								}}
 								onClick={() => setIsExpanded(true)}>
-								See more
+								查看更多
 							</VSCodeLink>
 						</div>
 					)}

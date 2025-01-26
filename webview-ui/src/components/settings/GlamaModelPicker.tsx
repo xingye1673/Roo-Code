@@ -151,20 +151,20 @@ const GlamaModelPicker: React.FC = () => {
 		<>
 			<style>
 				{`
-				.model-item-highlight {
-					background-color: var(--vscode-editor-findMatchHighlightBackground);
-					color: inherit;
-				}
-				`}
+.model-item-highlight {
+background-color: var(--vscode-editor-findMatchHighlightBackground);
+color: inherit;
+}
+`}
 			</style>
 			<div>
 				<label htmlFor="model-search">
-					<span style={{ fontWeight: 500 }}>Model</span>
+					<span style={{ fontWeight: 500 }}>模型</span>
 				</label>
 				<DropdownWrapper ref={dropdownRef}>
 					<VSCodeTextField
 						id="model-search"
-						placeholder="Search and select a model..."
+						placeholder="搜索并选择模型..."
 						value={searchTerm}
 						onInput={(e) => {
 							handleModelChange((e.target as HTMLInputElement)?.value?.toLowerCase())
@@ -176,7 +176,7 @@ const GlamaModelPicker: React.FC = () => {
 						{searchTerm && (
 							<div
 								className="input-icon-button codicon codicon-close"
-								aria-label="Clear search"
+								aria-label="清除搜索"
 								onClick={() => {
 									handleModelChange("")
 									setIsDropdownVisible(true)
@@ -227,17 +227,17 @@ const GlamaModelPicker: React.FC = () => {
 						marginTop: 0,
 						color: "var(--vscode-descriptionForeground)",
 					}}>
-					The extension automatically fetches the latest list of models available on{" "}
+					该扩展会自动从{" "}
 					<VSCodeLink style={{ display: "inline", fontSize: "inherit" }} href="https://glama.ai/models">
 						Glama.
 					</VSCodeLink>
-					If you're unsure which model to choose, Roo Code works best with{" "}
+					获取最新的可用模型列表。如果您不确定选择哪个模型，Roo Code 使用{" "}
 					<VSCodeLink
 						style={{ display: "inline", fontSize: "inherit" }}
 						onClick={() => handleModelChange("anthropic/claude-3.5-sonnet")}>
-						anthropic/claude-3.5-sonnet.
+						anthropic/claude-3.5-sonnet
 					</VSCodeLink>
-					You can also try searching "free" for no-cost options currently available.
+					效果最好。您也可以搜索 "free" 来查看当前可用的免费选项。
 				</p>
 			)}
 		</>
@@ -404,7 +404,7 @@ export const ModelDescriptionMarkdown = memo(
 									backgroundColor: "var(--vscode-sideBar-background)",
 								}}
 								onClick={() => setIsExpanded(true)}>
-								See more
+								查看更多
 							</VSCodeLink>
 						</div>
 					)}
