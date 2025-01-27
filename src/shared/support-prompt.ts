@@ -32,34 +32,34 @@ interface SupportPromptConfig {
 
 const supportPromptConfigs: Record<string, SupportPromptConfig> = {
 	ENHANCE: {
-		label: "Enhance Prompt",
+		label: "增强提示",
 		description:
-			"Use prompt enhancement to get tailored suggestions or improvements for your inputs. This ensures Roo understands your intent and provides the best possible responses. Available via the ✨ icon in chat.",
-		template: `Generate an enhanced version of this prompt (reply with only the enhanced prompt - no conversation, explanations, lead-in, bullet points, placeholders, or surrounding quotes):
+			"使用提示增强功能获取针对您输入的定制建议或改进。这确保 Roo 能够理解您的意图并提供最佳响应。可通过聊天中的 ✨ 图标使用。",
+		template: `生成此提示的增强版本（仅回复增强后的提示 - 无需对话、解释、开场白、要点、占位符或引号）：
 
 \${userInput}`,
 	},
 	EXPLAIN: {
-		label: "Explain Code",
+		label: "解释代码",
 		description:
-			"Get detailed explanations of code snippets, functions, or entire files. Useful for understanding complex code or learning new patterns. Available in the editor context menu (right-click on selected code).",
-		template: `Explain the following code from file path @/\${filePath}:
+			"获取代码片段、函数或整个文件的详细解释。适用于理解复杂代码或学习新模式。可在编辑器右键菜单中使用（右键点击选中的代码）。",
+		template: `解释以下来自文件路径 @/\${filePath} 的代码：
 \${userInput}
 
 \`\`\`
 \${selectedText}
 \`\`\`
 
-Please provide a clear and concise explanation of what this code does, including:
-1. The purpose and functionality
-2. Key components and their interactions
-3. Important patterns or techniques used`,
+请提供清晰简洁的解释，包括：
+1. 代码的目的和功能
+2. 关键组件及其交互
+3. 使用的重要模式或技术`,
 	},
 	FIX: {
-		label: "Fix Issues",
+		label: "修复问题",
 		description:
-			"Get help identifying and resolving bugs, errors, or code quality issues. Provides step-by-step guidance for fixing problems. Available in the editor context menu (right-click on selected code).",
-		template: `Fix any issues in the following code from file path @/\${filePath}
+			"获取帮助以识别和解决bug、错误或代码质量问题。提供逐步的问题修复指导。可在编辑器右键菜单中使用（右键点击选中的代码）。",
+		template: `修复以下来自文件路径 @/\${filePath} 的代码中的问题：
 \${diagnosticText}
 \${userInput}
 
@@ -67,30 +67,30 @@ Please provide a clear and concise explanation of what this code does, including
 \${selectedText}
 \`\`\`
 
-Please:
-1. Address all detected problems listed above (if any)
-2. Identify any other potential bugs or issues
-3. Provide corrected code
-4. Explain what was fixed and why`,
+请：
+1. 处理上述所有检测到的问题（如果有）
+2. 识别任何其他潜在的错误或问题
+3. 提供修正后的代码
+4. 解释修复了什么以及原因`,
 	},
 	IMPROVE: {
-		label: "Improve Code",
+		label: "改进代码",
 		description:
-			"Receive suggestions for code optimization, better practices, and architectural improvements while maintaining functionality. Available in the editor context menu (right-click on selected code).",
-		template: `Improve the following code from file path @/\${filePath}:
+			"接收代码优化、更佳实践和架构改进建议，同时保持功能不变。可在编辑器右键菜单中使用（右键点击选中的代码）。",
+		template: `改进以下来自文件路径 @/\${filePath} 的代码：
 \${userInput}
 
 \`\`\`
 \${selectedText}
 \`\`\`
 
-Please suggest improvements for:
-1. Code readability and maintainability
-2. Performance optimization
-3. Best practices and patterns
-4. Error handling and edge cases
+请就以下方面提出改进建议：
+1. 代码可读性和可维护性
+2. 性能优化
+3. 最佳实践和模式
+4. 错误处理和边界情况
 
-Provide the improved code along with explanations for each enhancement.`,
+提供改进后的代码并解释每项增强的原因。`,
 	},
 } as const
 

@@ -209,7 +209,7 @@ const PromptsView = ({ onDone }: PromptsViewProps) => {
 	)
 
 	const openCreateModeDialog = useCallback(() => {
-		const baseNamePrefix = "New Custom Mode"
+		const baseNamePrefix = "新建自定义模式"
 		// Find unique name and slug
 		let attempt = 0
 		let name = baseNamePrefix
@@ -948,8 +948,7 @@ const PromptsView = ({ onDone }: PromptsViewProps) => {
 													fontSize: "13px",
 													color: "var(--vscode-descriptionForeground)",
 												}}>
-												You can select an API configuration to always use for enhancing prompts,
-												or just use whatever is currently selected
+												您可以选择一个专门用于增强提示的 API 配置，或者使用当前选择的配置
 											</div>
 										</div>
 										<VSCodeDropdown
@@ -978,7 +977,7 @@ const PromptsView = ({ onDone }: PromptsViewProps) => {
 									<VSCodeTextArea
 										value={testPrompt}
 										onChange={(e) => setTestPrompt((e.target as HTMLTextAreaElement).value)}
-										placeholder="Enter a prompt to test the enhancement"
+										placeholder="输入一个提示来测试增强功能"
 										rows={3}
 										resize="vertical"
 										style={{ width: "100%" }}
@@ -996,7 +995,7 @@ const PromptsView = ({ onDone }: PromptsViewProps) => {
 											onClick={handleTestEnhancement}
 											disabled={isEnhancing}
 											appearance="primary">
-											Preview Prompt Enhancement
+											预览提示增强
 										</VSCodeButton>
 									</div>
 								</div>
@@ -1043,7 +1042,7 @@ const PromptsView = ({ onDone }: PromptsViewProps) => {
 								}}>
 								<span className="codicon codicon-close"></span>
 							</VSCodeButton>
-							<h2 style={{ margin: "0 0 16px" }}>Create New Mode</h2>
+							<h2 style={{ margin: "0 0 16px" }}>创建新模式</h2>
 							<div style={{ marginBottom: "16px" }}>
 								<div style={{ fontWeight: "bold", marginBottom: "4px" }}>名称</div>
 								<VSCodeTextField
